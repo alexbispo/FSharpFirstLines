@@ -24,14 +24,15 @@ module Program =
         let periodoTeste = { PeriodoDeTempo.DataInicial =  DateTime.Parse "21/11/1988"; PeriodoDeTempo.DataFinal = DateTime.Parse("29/10/1989") }
 
         let datasParaTeste =
-            [|
+            [
                 DateTime.Parse "13/01/1989"
                 DateTime.Parse "05/05/1998"
                 DateTime.Parse "29/10/1989"
-            |]
+            ]
 
-        Array.iter (fun e -> printfn "%b" (PeriodoDeTempo.verificaSeDataEstaDentroDoPeriodo periodoTeste e)) datasParaTeste
-    
+        datasParaTeste
+        |> List.iter (fun e -> printfn "%b" (PeriodoDeTempo.verificaSeDataEstaDentroDoPeriodo periodoTeste e))
+
         Console.ReadKey() |> ignore
 
         0 // return an integer exit code
